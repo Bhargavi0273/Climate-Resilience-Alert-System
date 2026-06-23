@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Climate Resilience Alert System</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<h1>Climate Resilience Alert System</h1>
+
+<form action="/predict" method="post">
+
+    <input type="number"
+           name="temperature"
+           placeholder="Temperature"
+           value="{{ temperature if temperature else '' }}"
+           required>
+
+    <input type="number"
+           name="rainfall"
+           placeholder="Rainfall"
+           value="{{ rainfall if rainfall else '' }}"
+           required>
+
+    <input type="number"
+           name="humidity"
+           placeholder="Humidity"
+           value="{{ humidity if humidity else '' }}"
+           required>
+
+    <input type="number"
+           name="wind_speed"
+           placeholder="Wind Speed"
+           value="{{ wind_speed if wind_speed else '' }}"
+           required>
+
+    <button type="submit">Predict</button>
+
+</form>
+
+<h2>{{ prediction_text }}</h2>
+
+</body>
+</html>
